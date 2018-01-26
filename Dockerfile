@@ -6,7 +6,7 @@ ENV TARGET_SDK "27"
 ENV ANDROID_HOME "/opt/sdk"
 ENV GLIBC_VERSION "2.25-r0"
 
-RUN apk add --no-cache --virtual=.build-dependencies wget unzip ca-certificates bash && \
+RUN apk add --no-cache --virtual=.build-dependencies wget unzip ca-certificates bash curl && \
 	wget https://raw.githubusercontent.com/sgerrand/alpine-pkg-glibc/master/sgerrand.rsa.pub -O /etc/apk/keys/sgerrand.rsa.pub && \
 	wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-${GLIBC_VERSION}.apk -O /tmp/glibc.apk && \
 	wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-bin-${GLIBC_VERSION}.apk -O /tmp/glibc-bin.apk && \
